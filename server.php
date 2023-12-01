@@ -10,6 +10,11 @@ if (isset($_POST["addTodo"])) {
     file_put_contents("todo-list.json", json_encode($listTask));
 }
 
+if (isset($_POST["removeTodo"])) {
+    $taskIndex = $_POST["removeTodo"];
+    array_splice($listTask, $taskIndex, 1);
+    file_put_contents("todo-list.json", json_encode($listTask));
+}
 header("Content-Type: application/json");
 echo json_encode($listTask);
 ?>

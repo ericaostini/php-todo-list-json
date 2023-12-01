@@ -32,9 +32,16 @@ createApp({
         },
         taskComplete(i) {
             this.todoList[i].done = !this.todoList[i].done;
+        },
+        removeTodo(index) {
+            const data = new FormData;
+            data.append("removeTodo", index);
 
-        }
+            axios.post(this.apiUrl, data).then((response) => {
+                this.todoList = response.data
+            })
 
+        },
     },
     mounted() {
         this.getTodoList();

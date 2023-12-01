@@ -36,6 +36,7 @@
                                 <span v-if="item.done" class="text-decoration-line-through"
                                     @click="taskComplete(index)">{{item.text}}</span>
                                 <span v-else @click="taskComplete(index)">{{item.text}}</span>
+                                <span class="float-end btn" @click="removeTodo(index)">X</span>
                             </li>
                         </ul>
                     </div>
