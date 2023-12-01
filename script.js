@@ -5,6 +5,10 @@ createApp({
         return {
             apiUrl: 'server.php',
             todoList: [],
+            newTodo: {
+                text: '',
+                done: false
+            }
         }
     },
     methods: {
@@ -13,6 +17,9 @@ createApp({
                 this.todoList = response.data;
                 console.log(this.todoList);
             })
+        },
+        addTodo() {
+
         }
 
     },
