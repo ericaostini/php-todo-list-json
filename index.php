@@ -10,7 +10,10 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js" type="module"></script>
     <title>Vue ToDoList</title>
 </head>
 
@@ -33,15 +36,15 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="list-group list-group-flush border border-1 rounded">
-                            <li v-for="(task, index) in todolist" class="list-group-item " :key="index">{{task}}</li>
+                            <li v-for="(item, index) in todoList" class="list-group-item " :key="index">
+                                <span>{{item.text}}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </main>
         </div>
     </div>
-
-    <script src="js/script.js"></script>
 </body>
 
 </html>
