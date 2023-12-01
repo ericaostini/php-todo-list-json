@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="list-group list-group-flush border border-1 rounded">
-                            <li class="list-group-item ">ciao</li>
+                            <li v-for="(task, index) in todolist" class="list-group-item " :key="index">{{task}}</li>
                         </ul>
                     </div>
                 </div>
