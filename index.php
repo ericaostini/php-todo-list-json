@@ -34,8 +34,8 @@
                         <ul class="list-group list-group-flush border border-1 rounded">
                             <li v-for="(item, index) in todoList" class="list-group-item" :key="index">
                                 <span v-if="item.done" class="text-decoration-line-through"
-                                    @click="taskComplete(index)">{{item.text}}</span>
-                                <span v-else @click="taskComplete(index)">{{item.text}}</span>
+                                    @click="updateTodo(index)">{{item.text}}</span>
+                                <span v-else @click="updateTodo(index)">{{item.text}}</span>
                                 <span class="float-end btn" @click="removeTodo(index)">X</span>
                             </li>
                         </ul>
