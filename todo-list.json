@@ -1,18 +1,1 @@
-[
-    {
-        "text": "Fare i compiti",
-        "done": true
-    },
-    {
-        "text": "Fare la spesa",
-        "done": false
-    },
-    {
-        "text": "Ritirare la posta",
-        "done": false
-    },
-    {
-        "text": "Svuotare la lavatrice",
-        "done": true
-    }
-]
+[{"text":"Fare i compiti","done":true},{"text":"Fare la spesa","done":false},{"text":"Ritirare la posta","done":false},{"text":"Svuotare la lavatrice","done":true},{"text":"Fare Compito","done":false}]

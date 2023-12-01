@@ -19,6 +19,16 @@ createApp({
             })
         },
         addTodo() {
+            // console.log(this.newTodo);
+            if (this.newTodo == '') {
+                return;
+            }
+            const data = new FormData;
+            data.append("addTodo", this.newTodo);
+
+            axios.post(this.apiUrl, data).then((response) => {
+                this.todoList = response.data;
+            })
 
         }
 
