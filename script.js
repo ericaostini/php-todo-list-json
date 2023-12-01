@@ -29,6 +29,9 @@ createApp({
             axios.post(this.apiUrl, data).then((response) => {
                 this.todoList = response.data;
             })
+        },
+        taskComplete(i) {
+            this.todoList[i].done = !this.todoList[i].done;
 
         }
 

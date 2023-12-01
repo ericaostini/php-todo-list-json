@@ -33,7 +33,9 @@
                     <div class="col-12">
                         <ul class="list-group list-group-flush border border-1 rounded">
                             <li v-for="(item, index) in todoList" class="list-group-item" :key="index">
-                                <span>{{item.text}}</span>
+                                <span v-if="item.done" class="text-decoration-line-through"
+                                    @click="taskComplete(index)">{{item.text}}</span>
+                                <span v-else @click="taskComplete(index)">{{item.text}}</span>
                             </li>
                         </ul>
                     </div>
