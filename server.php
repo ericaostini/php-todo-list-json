@@ -10,21 +10,26 @@ if (isset($_POST["addTodo"])) {
     file_put_contents("todo-list.json", json_encode($listTask));
 }
 
-if (isset($_POST["removeTodo"])) {
-    $taskIndex = $_POST["removeTodo"];
-    array_splice($listTask, $taskIndex, 1);
-    file_put_contents("todo-list.json", json_encode($listTask));
-}
-if (isset($_POST["updateTodo"])) {
-    $taskIndex = $_POST["updateTodo"];
-    //var_dump($listIndex[$taskIndex]);
-    if ($listTask[$taskIndex]["done"] == true) {
-        array_replace($listTask, ["done" => false]);
-    } else {
-        array_replace($listTask, ["done" => true]);
+// controllo http method
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ($method == 'POST') {
+    if (isset($_POST["removeTodo"])) {
+        $taskIndex = $_POST["removeTodo"];
+        array_splice($listTask, $taskIndex, 1);
+        file_put_contents("todo-list.json", json_encode($listTask));
     }
-    file_put_contents("todo-list.json", json_encode($listTask));
 }
+
+if ($method == "PUT") {
+    $obj = json_decode(file_get_contents('php://input'), true);
+    if (isset($obj['index'])) {
+        $index = $obj['index'];
+        $listTask[$index['done']] = !$listTask[$index['done']];
+        file_put_contents('todo-list.json', json_encode($list));
+    }
+}
+
 
 header("Content-Type: application/json");
 echo json_encode($listTask);

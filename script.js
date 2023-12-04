@@ -31,19 +31,25 @@ createApp({
             })
         },
         updateTodo(index) {
-            const data = new FormData;
-            data.append("updateTodo", index);
+            // const data = new FormData;
+            // data.append("updateTodo", index);
+            const data = {
+                id: index,
+            }
 
-            axios.post(this.apiUrl, data).then((response) => {
+            axios.put(this.apiUrl, data).then((response) => {
                 this.todoList = response.data;
                 this.todoList[index].done = !this.todoList[index].done;
             })
         },
         removeTodo(index) {
-            const data = new FormData;
-            data.append("removeTodo", index);
+            // const data = new FormData;
+            // data.append("removeTodo", index);
+            const data = {
+                id: index,
+            }
 
-            axios.post(this.apiUrl, data).then((response) => {
+            axios.delete(this.apiUrl, data).then((response) => {
                 this.todoList = response.data
             })
 
